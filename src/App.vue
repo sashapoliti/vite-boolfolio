@@ -1,6 +1,10 @@
 <template>
-  <h1 class="text-center">Ciao</h1>
-  <i class="fa fa-solid fa-home"></i>
+  <ul>
+    <li v-for="project in projects" :="project.id">
+      {{ project.title }}
+    </li>
+  </ul>
+  <button @click="getAllProject">avanti</button>
 </template>
 
 <script>
@@ -13,12 +17,14 @@ export default {
     return {
       store,
       projects: [],
+      nextPage: 0,
     };
   },
-  methods: {
+  methods: {    
     getAllProject() {
-      axios.get(this.store.apiBaseUrl + "/projects").then((response) => {
-        this.projects = response.data;
+      this.nextPage++;
+      axios.get(this.store.apiBaseUrl + "/projects", {params: {page: this.nextPage}}).then((response) => {
+        this.projects = response.data.results.data;
         console.log(this.projects);
       });
     },
