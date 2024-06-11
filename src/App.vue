@@ -1,9 +1,15 @@
 <template>
-  <ul>
-    <li v-for="menuItem in menuItems">
-      <router-link :to="menuItem.routeName">{{ menuItem.name }}</router-link>
-    </li>
-  </ul>
+  <header>
+    <nav>
+      <ul class="d-flex">
+        <li v-for="menuItem in menuItems">
+          <router-link :to="menuItem.routeName">{{
+            menuItem.name
+          }}</router-link>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- <ul>
     <li v-for="project in projects" :="project.id">
@@ -36,7 +42,7 @@ export default {
         {
           name: "Posts",
           routeName: "posts",
-        }
+        },
       ],
       /* nextPage: 0, */
     };
