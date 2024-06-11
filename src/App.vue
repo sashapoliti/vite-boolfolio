@@ -1,22 +1,11 @@
 <template>
-  <header>
-    <nav>
-      <ul class="d-flex">
-        <li v-for="menuItem in menuItems">
-          <router-link :to="menuItem.routeName">{{
-            menuItem.name
-          }}</router-link>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
   <!-- <ul>
     <li v-for="project in projects" :="project.id">
       {{ project.title }}
     </li>
   </ul> -->
 
+  <HeaderComponent />
   <main class="container">
     <router-view></router-view>
   </main>
@@ -28,22 +17,17 @@
 import axios from "axios";
 import { store } from "./store";
 
+import HeaderComponent from "./components/HeaderComponent.vue";
+
 export default {
   name: "App",
+  components: {
+    HeaderComponent,
+  },
   data() {
     return {
       store,
       projects: [],
-      menuItems: [
-        {
-          name: "Home",
-          routeName: "home",
-        },
-        {
-          name: "Posts",
-          routeName: "posts",
-        },
-      ],
       /* nextPage: 0, */
     };
   },

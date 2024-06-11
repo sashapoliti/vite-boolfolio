@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import AppHome from "./pages/AppHome.vue";
-import PostList from "./pages/PostList.vue";
+import ProjectList from "./pages/ProjectList.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -12,20 +12,20 @@ const router = createRouter({
             component: AppHome
         },
         {
-            path: "/posts",
-            name: "posts",
-            component: PostList
+            path: "/projects",
+            name: "projects",
+            component: ProjectList
         },
-        {
-          path: "/posts/:slug",
-          name: "single-post",
-          component: PostComponent,
+        /* {
+          path: "/projects/:slug",
+          name: "single-project",
+          component: ProjectComponent,
         },
         {
           path: "/:pathMatch(.*)*",
           name: "not-found",
           component: NotFound,
-        }
+        } */
     ]
 });
 
