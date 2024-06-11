@@ -27,7 +27,7 @@ export default {
           this.project = response.data.results;
         })
         .catch((error) => {
-          /* this.$router.push({ name: "not-found" }); */
+          this.$router.push({ name: "not-found" });
         })
         .finally();
     },
