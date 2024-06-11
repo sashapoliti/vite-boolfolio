@@ -6,7 +6,7 @@
   <section>
     <div class="row">
         <div class="col-12 col-lg-6 col-xl-4 col-xxl" v-for="project in projects" :key="project.id">
-            <ProjectCard />
+            <ProjectCard :object="project" />
         </div>
     </div>
   </section>
