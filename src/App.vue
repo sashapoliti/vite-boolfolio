@@ -1,11 +1,20 @@
 <template>
   <ul>
-    <li v-for="project in projects" :="project.id">
-      {{ project.title }}
+    <li v-for="menuItem in menuItems">
+      <router-link :to="menuItem.routeName">{{ menuItem.name }}</router-link>
     </li>
   </ul>
 
-  <router-view></router-view>
+  <!-- <ul>
+    <li v-for="project in projects" :="project.id">
+      {{ project.title }}
+    </li>
+  </ul> -->
+
+  <main class="container">
+    <router-view></router-view>
+  </main>
+
   <!-- <button @click="getAllProject">avanti</button> -->
 </template>
 
@@ -19,16 +28,31 @@ export default {
     return {
       store,
       projects: [],
+      menuItems: [
+        {
+          name: "Home",
+          routeName: "home",
+        },
+        {
+          name: "Posts",
+          routeName: "posts",
+        }
+      ],
       /* nextPage: 0, */
     };
   },
-  methods: {    
+  methods: {
     getAllProject() {
       /* this.nextPage++; */
-      axios.get(this.store.apiBaseUrl + "/projects"/* , {params: {page: this.nextPage}} */).then((response) => {
-        this.projects = response.data.results/* .data */;
-        console.log(this.projects);
-      });
+      axios
+        .get(
+          this.store.apiBaseUrl +
+            "/projects" /* , {params: {page: this.nextPage}} */
+        )
+        .then((response) => {
+          this.projects = response.data.results /* .data */;
+          console.log(this.projects);
+        });
     },
   },
   mounted() {
