@@ -4,11 +4,11 @@
   </section>
 
   <section>
-    <ul>
-      <li v-for="project in projects" :="project.id">
-        {{ project.title }}
-      </li>
-    </ul>
+    <div class="row">
+        <div class="col-12 col-lg-6 col-xl-4 col-xxl" v-for="project in projects" :key="project.id">
+            <ProjectCard />
+        </div>
+    </div>
   </section>
 </template>
 
@@ -16,9 +16,13 @@
 import axios from "axios";
 import { store } from "../store";
 
+import ProjectCard from "../components/ProjectCard.vue";
 
 export default {
   name: "ProjectList",
+  components: {
+    ProjectCard
+  },
   data() {
     return {
       store,
