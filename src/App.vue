@@ -4,6 +4,8 @@
       {{ project.title }}
     </li>
   </ul>
+
+  <router-view></router-view>
   <!-- <button @click="getAllProject">avanti</button> -->
 </template>
 
