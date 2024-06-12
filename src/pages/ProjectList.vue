@@ -19,7 +19,7 @@
         <li class="page-item">
           <a
             class="page-link"
-            :class="{ currentPage == 1 ? 'disabled' : '' }"
+            :class="currentPage == 1 ? 'disabled' : ''"
             href="#"
             @click.prevent="setParams(currentPage - 1)"
             >Previous</a
@@ -38,7 +38,7 @@
         <li class="page-item">
           <a
             class="page-link"
-            :class="{ currentPage == totalPage ? 'disabled' : '' }"
+            :class="currentPage == totalPage ? 'disabled' : ''"
             href="#"
             @click.prevent="setParams(currentPage + 1)"
             >Next</a
@@ -66,7 +66,7 @@ export default {
       projects: [],
       currentPage: 0,
       totalPage: 0,
-      params: null,
+      params: {},
     };
   },
   methods: {

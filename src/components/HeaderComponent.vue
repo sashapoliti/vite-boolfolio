@@ -33,7 +33,7 @@ export default {
         },
         {
           name: "About",
-          routeName: "about",
+          routeName: "about-us",
         },
         {
           name: "Contact",
