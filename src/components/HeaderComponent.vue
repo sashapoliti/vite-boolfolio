@@ -31,6 +31,14 @@ export default {
           name: "Projects",
           routeName: "projects",
         },
+        {
+          name: "About",
+          routeName: "about",
+        },
+        {
+          name: "Contact",
+          routeName: "contact",
+        },
       ],
     };
   },
