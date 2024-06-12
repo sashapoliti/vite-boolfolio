@@ -1,7 +1,7 @@
 <template>
   <div v-if="project">
     <h1>{{ project.title }}</h1>
-    <img :src="getImg" :alt="project.title">
+    <img :src="getImg" :alt="project.title" />
     <p v-html="project.description"></p>
     <span>{{ project.type?.name }}</span>
   </div>
@@ -41,6 +41,15 @@ export default {
   },
   mounted() {
     this.getProject();
+  },
+  created() {
+    this.$watch(
+            () => this.$route.params,
+            (toParams, previousParams) => {
+                // react to route changes...
+                this.getPost();
+            }
+        )
   },
 };
 </script>

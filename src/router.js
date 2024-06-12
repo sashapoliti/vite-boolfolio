@@ -6,29 +6,29 @@ import ProjectComponent from "./pages/ProjectComponent.vue";
 import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        {
-            path: "/",
-            name: "home",
-            component: AppHome
-        },
-        {
-            path: "/projects",
-            name: "projects",
-            component: ProjectList
-        },
-        {
-          path: "/projects/:slug",
-          name: "single-project",
-          component: ProjectComponent,
-        },
-        {
-          path: "/:pathMatch(.*)*",
-          name: "not-found",
-          component: NotFound,
-        }
-    ]
+  history: createWebHistory(),
+  routes: [
+    {
+      path: "/",
+      name: "home",
+      component: AppHome,
+    },
+    {
+      path: "/projects",
+      name: "projects",
+      component: ProjectList,
+    },
+    {
+      path: "/projects/:slug",
+      name: "single-project",
+      component: ProjectComponent,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: NotFound,
+    },
+  ],
 });
 
 export { router };
