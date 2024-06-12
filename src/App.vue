@@ -21,8 +21,17 @@ export default {
       store,
     };
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    getTypes() {
+      axios.get(`${this.store.apiBaseUrl}/types`).then((response) => {
+        this.store.types = response.data.results;
+        console.log(this.store.types);
+      })
+    }
+  },
+  mounted() {
+    this.getTypes()
+  },
 };
 </script>
 

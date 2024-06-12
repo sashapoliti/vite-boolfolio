@@ -1,6 +1,12 @@
 <template>
-  <section>
+  <section class="d-flex justify-content-between align-items-center">
     <h1>Project list</h1>
+    <select name="types" id="types" class="form-select" v-model="typeSelected" @change="setParams(1)">
+      <option value="">All</option>
+      <option v-for="type in store.types" :key="type.id" :value="type.id">
+        {{ type.name }}
+      </option>
+    </select>
   </section>
 
   <section>
@@ -66,6 +72,7 @@ export default {
       projects: [],
       currentPage: 0,
       totalPage: 0,
+      typeSelected: "",
       params: {},
     };
   },
@@ -74,7 +81,11 @@ export default {
       this.currentPage = numpage;
       this.params = {
         page: this.currentPage,
-      }
+      };
+      if (this.typeSelected) {
+        this.params.type = this.typeSelected;
+      };
+      console.log(this.params);
       this.getAllProject();
     },
     getAllProject() {
@@ -88,7 +99,7 @@ export default {
 
           this.params = null;
         });
-    }
+    },
   },
   mounted() {
     this.getAllProject();
