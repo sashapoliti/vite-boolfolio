@@ -3,7 +3,7 @@
     <img :src="getImg" class="card-img-top" :alt="object.title" />
     <div class="card-body">
       <h5 class="card-title">{{ object.title }}</h5>
-      <p class="card-text" v-html="object.description"></p>
+      <p class="card-text" v-html="object.description.substring(0, 30) + '...'"></p>
       <RouterLink
         :to="{ name: 'single-project', params: { slug: object.slug } }"
         class="btn btn-success"
