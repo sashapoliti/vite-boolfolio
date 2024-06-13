@@ -2,7 +2,7 @@
   <div>
     <h1>Contact</h1>
     <div class="alert alert-success" role="alert" v-if="success">
-      Messagge sent!
+      {{ successMessage }}
     </div>
     <div class="row">
       <form @submit.prevent="sendForm()" class="col-12 col-lg-6 text-start">
@@ -82,6 +82,7 @@ export default {
       message: "",
       errors: {},
       success: false,
+      successMessage: "",
       loading: false,
     };
   },
@@ -100,6 +101,7 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.success = true;
+          this.successMessage = response.data.message;
           this.name = "";
           this.email = "";
           this.message = "";
