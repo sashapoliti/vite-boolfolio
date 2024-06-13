@@ -3,8 +3,8 @@
     <h1>Project list</h1>
     <select name="types" id="types" class="form-select" v-model="typeSelected" @change="setParams(1)">
       <option value="">All</option>
-      <option v-for="type in store.types" :key="type.id" :value="type.id">
-        {{ type.name }}
+      <option v-for="elType in store.types" :key="elType.id" :value="elType.id">
+        {{ elType.name }}
       </option>
     </select>
   </section>
